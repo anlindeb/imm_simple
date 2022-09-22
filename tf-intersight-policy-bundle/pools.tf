@@ -10,7 +10,7 @@ resource "intersight_ippool_pool" "ippool_pool1" {
   description = var.description
   assignment_order = "sequential"
   ip_v4_blocks {
-    from = "198.18.0.1"
+    from = "198.18.0.100"
     size = "99"
   }
   ip_v4_config {
