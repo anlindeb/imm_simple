@@ -260,45 +260,71 @@ resource "intersight_vmedia_policy" "vmedia2" {
 resource "intersight_fabric_system_qos_policy" "qos1" {
   name        = "${var.policy_prefix}-system-qos"
   description = var.description
-  classes {
-    best_effort_admin_state        = "Enabled"
-    best_effort_bandwidth          = 5
-    best_effort_mtu                = 9216
-    best_effort_multicast_optimize = false
-    best_effort_weight             = 1
-    bronze_admin_state             = "Enabled"
-    bronze_bandwidth               = 5
-    bronze_cos                     = 1
-    bronze_mtu                     = 9216
-    bronze_multicast_optimize      = false
-    bronze_packet_drop             = true
-    bronze_weight                  = 1
-    description                    = ""
-    fc_bandwidth                   = 39
-    fc_weight                      = 6
-    gold_admin_state               = "Enabled"
-    gold_bandwidth                 = 23
-    gold_cos                       = 4
-    gold_mtu                       = 9216
-    gold_multicast_optimize        = false
-    gold_packet_drop               = true
-    gold_weight                    = 4  
-    platinum_admin_state           = "Enabled"
-    platinum_bandwidth             = 23
-    platinum_cos                   = 5
-    platinum_mtu                   = 9216
-    platinum_multicast_optimize    = false
-    platinum_packet_drop           = false
-    platinum_weight                = 4
-    silver_admin_state             = "Enabled"
-    silver_bandwidth               = 5
-    silver_cos                     = 2
-    silver_mtu                     = 9216
-    silver_multicast_optimize      = false
-    silver_packet_drop             = true
-    silver_weight                  = 1
+   classes {
+    admin_state        = "Enabled"
+    bandwidth_percent  = 6
+    cos                = 1
+    mtu                = 9000
+    multicast_optimize = false
+    name               = "Bronze"
+    packet_drop        = true
+    weight             = 1
   }
 
+  classes {
+    admin_state        = "Enabled"
+    bandwidth_percent  = 6
+    cos                = 2
+    mtu                = 1500
+    multicast_optimize = true
+    name               = "Silver"
+    packet_drop        = true
+    weight             = 1
+  }
+
+  classes {
+    admin_state        = "Enabled"
+    bandwidth_percent  = 25
+    cos                = 4
+    mtu                = 1500
+    multicast_optimize = false
+    name               = "Gold"
+    packet_drop        = true
+    weight             = 4
+  }
+
+  classes {
+    admin_state        = "Enabled"
+    bandwidth_percent  = 25
+    cos                = 5
+    mtu                = 1500
+    multicast_optimize = false
+    name               = "Platinum"
+    packet_drop        = false
+    weight             = 4
+  }
+
+  classes {
+    admin_state        = "Enabled"
+    bandwidth_percent  = 6
+    cos                = 255
+    mtu                = 1500
+    multicast_optimize = false
+    name               = "Best Effort"
+    packet_drop        = true
+    weight             = 1
+  }
+
+  classes {
+    admin_state        = "Enabled"
+    bandwidth_percent  = 32
+    cos                = 3
+    mtu                = 2240
+    multicast_optimize = false
+    name               = "FC"
+    packet_drop        = false
+    weight             = 5
+  }
 
   organization {
     moid        = var.organization
