@@ -44,7 +44,7 @@ resource "intersight_boot_precision_policy" "boot_precision1" {
         Name        = ""
         ObjectType  = "boot.Bootloader"
         Path        = ""
-      }
+      })
   }
   organization {
     moid        = var.organization
