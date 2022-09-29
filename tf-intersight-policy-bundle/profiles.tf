@@ -103,7 +103,7 @@ resource "intersight_server_profile_template" "template1" {
   }
 
   uuid_pool {
-    moid = intersight_uuidpool_pool.default.moid
+    moid = intersight_uuidpool_pool.uuidpool_pool.moid
   }
   
   # the following policy_bucket statements map different policies to this
