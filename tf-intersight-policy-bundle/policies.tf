@@ -201,6 +201,32 @@ resource "intersight_fabric_multicast_policy" "fabric_multicast_policy1" {
   }
 }
 
+# =============================================================================
+# BIOS
+# -----------------------------------------------------------------------------
+
+resource "intersight_bios_policy" "virtualization" {
+  name = "${var.policy_prefix}-bios-virt"
+  
+  ## Customizations
+  cpu_perf_enhancement                  = "auto"
+  tpm_support                           = "disabled"
+  processor_c1e                         = "disabled"
+  lv_ddr_mode                           = "auto"
+  cpu_perf_enhancement                  = "auto"
+
+organization {
+    moid        = var.organization
+    object_type = "organization.Organization"
+  }
+  dynamic "tags" {
+    for_each = var.tags
+    content {
+      key   = tags.value.key
+      value = tags.value.value
+    }
+  }
+}
 
 # =============================================================================
 # Virtual KVM Policy
@@ -406,6 +432,28 @@ resource "intersight_snmp_policy" "snmp_disabled" {
   name        = "${var.policy_prefix}-snmp-disabled"
   description = var.description
   enabled     = false
+  organization {
+    moid        = var.organization
+    object_type = "organization.Organization"
+  }
+  dynamic "tags" {
+    for_each = var.tags
+    content {
+      key   = tags.value.key
+      value = tags.value.value
+    }
+  }
+}
+# =============================================================================
+# Power - Grid
+# -----------------------------------------------------------------------------
+resource "intersight_power_policy" "grid_last_state" {
+  name = "grid_last_state"
+ 
+  power_profiling     = "Enabled"
+  power_restore_state = "LastState"
+  redundancy_mode     = "Grid"
+  
   organization {
     moid        = var.organization
     object_type = "organization.Organization"
