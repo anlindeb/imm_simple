@@ -216,7 +216,6 @@ resource "intersight_bios_policy" "biosvirt" {
   tpm_support                           = "disabled"
   processor_c1e                         = "disabled"
   lv_ddr_mode                           = "auto"
-  cpu_perf_enhancement                  = "auto"
 
 organization {
     moid        = var.organization
@@ -300,7 +299,7 @@ resource "intersight_iam_end_point_user_role" "admin" {
   }
 
   enabled  = true
-  password = var.imc_local_admin_password
+  password = var.imc_admin_password
 
   end_point_user {
     moid = intersight_iam_end_point_user.admin.moid
