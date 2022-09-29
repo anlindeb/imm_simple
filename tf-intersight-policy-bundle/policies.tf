@@ -7,6 +7,7 @@
 #    - Virtual Media
 #    - System QoS
 #    - IMC Access
+#    - BIOS
 
 # =============================================================================
 # Boot Precision (boot order) Policy
