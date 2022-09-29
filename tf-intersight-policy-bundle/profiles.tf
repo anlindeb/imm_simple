@@ -132,6 +132,10 @@ resource "intersight_server_profile_template" "template1" {
     moid = intersight_bios_policy.biosvirt.moid
     object_type = "bios.Policy"
   } 
+  policy_bucket { 
+    moid        = intersight_power_policy.grid_last_state.moid
+    object_type = "power.Policy"
+  }
 #  policy_bucket {
 #    moid = intersight_iam_end_point_user_policy.user_policy1.moid
 #    object_type = "iam.EndPointUserPolicy"
