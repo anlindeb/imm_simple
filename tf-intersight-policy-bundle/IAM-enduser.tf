@@ -22,10 +22,10 @@ resource "intersight_iam_end_point_user_policy" "user_policy1" {
     enforce_strong_password  = false
     enable_password_expiry   = false
     force_send_password      = true
-    password_expiry_duration = 1
-    password_history         = 0
-    notification_period      = 0
-    grace_period             = 0
+    password_expiry_duration = 50
+    password_history         = 5
+    notification_period      = 1
+    grace_period             = 3
   }
 
 }
