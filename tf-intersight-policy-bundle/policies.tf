@@ -212,7 +212,7 @@ resource "intersight_bios_policy" "biosvirt" {
   name = "${var.policy_prefix}-biosvirt"
   
   ## Customizations
-  cpu_perf_enhancement                  = "auto"
+  cpu_perf_enhancement                  = "Auto"
   tpm_support                           = "disabled"
   processor_c1e                         = "disabled"
   lv_ddr_mode                           = "auto"
