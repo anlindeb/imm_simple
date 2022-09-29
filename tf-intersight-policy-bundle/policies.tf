@@ -205,8 +205,8 @@ resource "intersight_fabric_multicast_policy" "fabric_multicast_policy1" {
 # BIOS
 # -----------------------------------------------------------------------------
 
-resource "intersight_bios_policy" "virtualization" {
-  name = "${var.policy_prefix}-bios-virt"
+resource "intersight_bios_policy" "biosvirt" {
+  name = "${var.policy_prefix}-biosvirt"
   
   ## Customizations
   cpu_perf_enhancement                  = "auto"
