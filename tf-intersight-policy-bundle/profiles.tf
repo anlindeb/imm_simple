@@ -102,6 +102,10 @@ resource "intersight_server_profile_template" "template1" {
     }
   }
 
+  uuid_pool {
+    moid = intersight_uuidpool_pool.default.moid
+  }
+  
   # the following policy_bucket statements map different policies to this
   # template -- the object_type shows the policy type
   policy_bucket {
