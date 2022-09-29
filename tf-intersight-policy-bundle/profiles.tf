@@ -125,7 +125,7 @@ resource "intersight_server_profile_template" "template1" {
     object_type = "access.Policy"
   }
    policy_bucket {
-    moid = intersight_bios_policy.platform-defaults.moid
+    moid = intersight_bios_policy.biosvirt.moid
     object_type = "bios.Policy"
   } 
 #  policy_bucket {
