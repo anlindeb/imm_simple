@@ -4,8 +4,8 @@
 
 
 # This is the base policy, which does not include any users
-resource "intersight_iam_end_point_user_policy" "default" {
-  name = "default"
+resource "intersight_iam_end_point_user_policy" "user_policy1" {
+  name = "user_policy1"
   organization {
     moid        = var.organization
     object_type = "organization.Organization"
@@ -74,7 +74,7 @@ resource "intersight_iam_end_point_user_role" "admin" {
   }
 
   end_point_user_policy {
-    moid = intersight_iam_end_point_user_policy.default.moid
+    moid = intersight_iam_end_point_user_policy.user_policy1.moid
   }
 
   end_point_role {
